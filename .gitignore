@@ -1,10 +1,11 @@
 /*
 !.gitignore
 !/Java_Greedy_Snake
+!Java_Beginner_Note.md
+!/net
+
 
 Java_Greedy_Snake/src/META-INF
-
-
 
 ######## idea ########
 *.iml
