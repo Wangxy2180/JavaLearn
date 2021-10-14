@@ -7,6 +7,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 
+// 这里是创造了个类，用来进行UDP包的发送
+// Runnable是多线程的库
 public class TalkSend implements Runnable {
     DatagramSocket socket = null;
     BufferedReader reader = null;
@@ -20,6 +22,7 @@ public class TalkSend implements Runnable {
         this.toPort = toPort;
         this.fromPort = fromPort;
         try {
+            // 创建socket连接和输入流
             socket = new DatagramSocket(fromPort);
             reader = new BufferedReader(new InputStreamReader(System.in));
         } catch (Exception e) {
@@ -29,15 +32,14 @@ public class TalkSend implements Runnable {
 
     @Override
     public void run() {
-
-
         while (true) {
             String data = null;
             try {
+                // 获取输入数据的字节流并将其封成包
                 data = reader.readLine();
                 byte[] datas = data.getBytes();
                 DatagramPacket packet = new DatagramPacket(datas, 0, datas.length, new InetSocketAddress(this.toIP, this.toPort));
-
+                // 发送包
                 socket.send(packet);
                 if (data.equals("bye")) {
                     break;

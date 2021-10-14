@@ -21,6 +21,7 @@ public class TCPServerDemo02 {
 
         byte[] buffer = new byte[1024];
         int len;
+        // 将数据从is中读出存入buffer
         while ((len = is.read(buffer)) != -1) {
             fos.write(buffer, 0, len);
         }

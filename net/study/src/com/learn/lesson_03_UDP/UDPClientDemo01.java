@@ -19,6 +19,7 @@ public class UDPClientDemo01 {
         InetAddress localhost = InetAddress.getByName("localhost");
         int port = 9090;
 
+        // 包里边包含了所有的信息，ip端口号等
         DatagramPacket packet = new DatagramPacket(msg.getBytes(), 0, msg.getBytes().length, localhost, port);
 
         // 3.发送包

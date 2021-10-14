@@ -24,6 +24,7 @@ public class URLDownload {
 
         byte[] buffer = new byte[1024];
         int len;
+        // 还是，从is中读取数据放到buffer中
         while ((len = inputStream.read(buffer)) != -1) {
             fos.write(buffer, 0, len); // 写出数据
         }

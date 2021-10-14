@@ -11,11 +11,12 @@ public class TCPClientDemo02 {
         Socket socket = new Socket(InetAddress.getByName("127.0.0.1"), 9000);
         // 2.创建一个输出流
         OutputStream os = socket.getOutputStream();
-        // 3.读取文件流
+        // 3.读取文件流，将文件读入到fis中
         FileInputStream fis = new FileInputStream(new File("test.png"));
         // 4. 写出文件 1024可以修改，习惯与规范的问题
         byte[] buffer = new byte[1024];
         int len;
+        // 将fis中数据存入buffer
         while ((len = fis.read(buffer)) != -1) {
             os.write(buffer, 0, len);
         }
@@ -43,7 +44,5 @@ public class TCPClientDemo02 {
         fis.close();
         os.close();
         socket.close();
-
-
     }
 }
